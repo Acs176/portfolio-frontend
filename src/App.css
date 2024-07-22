@@ -7,13 +7,13 @@
   src: url('\\fonts\\playfair-display-v37-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* oswald-regular - latin */
+/* oswald-700 - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Oswald';
   font-style: normal;
-  font-weight: 400;
-  src: url('\\fonts\\oswald-v53-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  font-weight: 700;
+  src: url('\\fonts\\oswald-v53-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* roboto-regular - latin */
@@ -25,7 +25,129 @@
   src: url('\\fonts\\roboto-v30-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* roboto-condensed-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: url('\\fonts\\roboto-condensed-v27-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* roboto-condensed-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 600;
+  src: url('\\fonts\\roboto-condensed-v27-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* roboto-condensed-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: url('\\fonts\\roboto-condensed-v27-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow-x: hidden;
+}
+
 .App {
   font-family: "Roboto";
+  color: white;
+  display: inline-flex;
+  background-color: #1e1e1e;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
 }
+.left-panel-placeholder{
+  content: "";
+  left:0;
+  top: 0;
+  width: clamp(400px, 40%, 900px);
+  height: 100vh;
+}
+.left-panel{
+  position: fixed;
+  width: clamp(400px, 40%, 900px);
+  height: 100vh;
+  background-image: url("\\imgs\\filtered-bg-4.png");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 5px 0px 15px rgb(11, 11, 11);
+}
+.left-panel-inside {
+  position: relative;
+  height: 100vh;
+  max-width: 100%;
+  padding: 4rem; /*TODO*/
+}
+.left-panel-inside ul {
+  position: absolute;
+  bottom: 60vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color:rgba(253, 253, 253, 0.849);
+  font-weight: bold;
+  list-style: none;
+}
+
+#my-name{
+  font-family: "Oswald";
+  font-size: 70px; /*TODO*/
+  letter-spacing: -4px;
+  padding-right: 5rem; /*CUIDADO*/
+  line-height: 70px; /*TODO*/
+  color:rgba(253, 253, 253, 0.849)
+}
+
+.div-title{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.div-title h2 {
+  font-family: "Roboto Condensed";
+  font-size: 35px;
+  color:rgba(253, 253, 253, 0.849)
+}
+.right-panel {
+  width: 60%;
+}
+.right-panel-inside {
+  padding: 6rem 14rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.quote {
+  font-family: "playfair display";
+  font-weight: lighter;
+  font-size: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  letter-spacing: -2px;
+}
+
+.paragraph{
+  color: #868686;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 35rem;
+}
+
+
 
