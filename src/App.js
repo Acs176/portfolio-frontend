@@ -1,5 +1,6 @@
 
 import './App.css';
+import Job from './components/Job';
 import './generic.css'
 import { Link, Element } from 'react-scroll';
 
@@ -12,17 +13,17 @@ function App() {
             <h1 id='my-name'>ADRIÁN CARBONELL</h1>
             <h2>SOFTWARE ENGINEER</h2>
           </div>
-          <ul className="flex-col soft-white">
+          <ul className="flex-col dark-text-2">
             <Link
-              activeClass="active-nav" 
+              activeClass="nav-item active-nav" 
               to="experience" 
               spy={true}
               offset={-20} 
               smooth={true} 
               duration={500}
-              
+              className="nav-item"
             >
-              <li class="nav-item" >
+              <li>
                 EXPERIENCE
               </li>
             </Link>
@@ -32,6 +33,7 @@ function App() {
               spy={true} 
               smooth={true}
               duration={500}
+              className="nav-item"
             >
               <li>
                 PROJECTS
@@ -45,7 +47,8 @@ function App() {
               spy={true}
               offset={-20}  
               smooth={true} 
-              duration={500} 
+              duration={500}
+              className="nav-item" 
             >
               <li>
                 EDUCATION
@@ -75,39 +78,24 @@ function App() {
           <div className='experience-section flex-col'>
           
             <h2 className='oswald title soft-white'>EXPERIENCE</h2>
-            <div className='job soft-white-2'>
-              <div className='job-left'>
-                <p className='sub-title'>Zeekr Tech Europe</p>
-                <p className='sub-title'>Software Engineer</p>
-                <br/>
-                <p>Sept 2023 - Today</p>
-              </div>
-              <p className='paragraph job-right'>
-              I deployed a full-scale production application, evolving it from a prototype with a team of three developers. I developed full-stack applications using Kotlin and Java for the frontend, Golang for the backend, and managed the infrastructure with Terraform. Additionally, I integrated LLM solutions into production apps and gained experience with Azure OpenAI services. Through this project, I learned to configure Azure Cloud Services using Terraform and integrate them into applications. I have worked with both large and small agile teams, ranging from 20 to 3 members, always prioritizing an open-to-collaboration environment.
-              </p>
-            </div>
-            <div className='job soft-white-2'>
-              <div className='job-left'>
-                <p className='sub-title'>MicrocementPRO</p>
-                <p className='sub-title'>Full-Stack Developer</p>
-                <br/>
-                <p>June 2023 - Sept 2023</p>
-              </div>
-              <p className='paragraph job-right'>
-              I built a website application independently for a client, using React for the frontend and deploying a separate backend with a PostgreSQL database. I maintained constant communication with the client to gather feedback and ensure their satisfaction. Additionally, I collaborated with an SEO expert to maximize exposure and help the client expand their business outside the UK.
-              </p>
-            </div>
-            <div className='job soft-white-2'>
-              <div className='job-left'>
-                <p className='sub-title'>Unit4</p>
-                <p className='sub-title'>Software Engineer Intern</p>
-                <br/>
-                <p>July 2022 - Dec 2022</p>
-              </div>
-              <p className='paragraph job-right'>
-              I built a website application using .NET and Azure DevOps while working in an international team that emphasized Agile methodologies and peer programming. We followed Test-Driven Development (TDD) and used xUnit for testing the application.
-              </p>
-            </div>
+            <Job
+              company={"Zeekr Tech Europe"}
+              position={"Software Engineer"}
+              duration={"Sept 2023 - Today"}
+              description={"I deployed a full-scale production application, evolving it from a prototype with a team of three developers. I developed full-stack applications using Kotlin and Java for the frontend, Golang for the backend, and managed the infrastructure with Terraform. Additionally, I integrated LLM solutions into production apps and gained experience with Azure OpenAI services. Through this project, I learned to configure Azure Cloud Services using Terraform and integrate them into applications. I have worked with both large and small agile teams, ranging from 20 to 3 members, always prioritizing an open-to-collaboration environment."}
+            />
+            <Job
+              company={"MicrocementPRO"}
+              position={"Full-Stack Developer"}
+              duration={"June 2023 - Sept 2023"}
+              description={"I built a website application independently for a client, using React for the frontend and deploying a separate backend with a PostgreSQL database. I maintained constant communication with the client to gather feedback and ensure their satisfaction. Additionally, I collaborated with an SEO expert to maximize exposure and help the client expand their business outside the UK."}
+            />
+            <Job
+              company={"Unit4"}
+              position={"Software Engineer Intern"}
+              duration={"July 2022 - Dec 2022"}
+              description={"I built a website application using .NET and Azure DevOps while working in an international team that emphasized Agile methodologies and peer programming. We followed Test-Driven Development (TDD) and used xUnit for testing the application."}
+            />
           </div>
           </Element>
           <Element name="projects">

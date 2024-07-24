@@ -133,18 +133,6 @@ body {
 .experience-section {
   gap:3rem;
 }
-.job {
-  display: flex;
 
-  width: 100%;
-}
-
-.job-left {
-  width: 40%;
-}
-
-.job-right{
-  width: 60%;
-}
 
 
