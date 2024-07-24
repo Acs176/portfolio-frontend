@@ -64,21 +64,20 @@ body {
   display: inline-flex;
   background-color: #1e1e1e;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   padding: 0;
   margin: 0;
 }
+
 .left-panel-placeholder{
   content: "";
   left:0;
   top: 0;
   width: clamp(400px, 40%, 900px);
-  height: 100vh;
 }
 .left-panel{
   position: fixed;
   width: clamp(400px, 40%, 900px);
-  height: 100vh;
   background-image: url("\\imgs\\filtered-bg-4.png");
   background-size: cover;
   background-position: center;
@@ -86,17 +85,13 @@ body {
 }
 .left-panel-inside {
   position: relative;
-  height: 100vh;
   max-width: 100%;
   padding: 4rem; /*TODO*/
 }
 .left-panel-inside ul {
   position: absolute;
   bottom: 60vh;
-  display: flex;
-  flex-direction: column;
   gap: 1rem;
-  color:rgba(253, 253, 253, 0.849);
   font-weight: bold;
   list-style: none;
 }
@@ -107,47 +102,49 @@ body {
   letter-spacing: -4px;
   padding-right: 5rem; /*CUIDADO*/
   line-height: 70px; /*TODO*/
-  color:rgba(253, 253, 253, 0.849)
+
 }
 
 .div-title{
-  display: flex;
-  flex-direction: column;
   gap: 1rem;
 }
 
 .div-title h2 {
   font-family: "Roboto Condensed";
   font-size: 35px;
-  color:rgba(253, 253, 253, 0.849)
 }
 .right-panel {
   width: 60%;
 }
 .right-panel-inside {
   padding: 6rem 14rem;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
+  gap: 6rem;
 }
 
 .quote {
   font-family: "playfair display";
   font-weight: lighter;
   font-size: 35px;
-  display: flex;
-  flex-direction: column;
   gap: 1rem;
   letter-spacing: -2px;
 }
 
-.paragraph{
-  color: #868686;
+/* EXPERIENCE */
+.experience-section {
+  gap:3rem;
+}
+.job {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 35rem;
+
+  width: 100%;
 }
 
+.job-left {
+  width: 40%;
+}
+
+.job-right{
+  width: 60%;
+}
 
 
