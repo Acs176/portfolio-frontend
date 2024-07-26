@@ -100,40 +100,31 @@ function App() {
           </Element>
           <Element name="projects">
           <div className='experience-section flex-col'>
-            <h2 className='oswald title soft-white'>EXPERIENCE</h2>
-            <div className='job soft-white-2'>
-              <div className='job-left'>
-                <p className='sub-title'>Zeekr Tech Europe</p>
-                <p className='sub-title'>Software Engineer</p>
-                <br/>
-                <p>Sept 2023 - Today</p>
-              </div>
-              <p className='paragraph job-right'>
-              I deployed a full-scale production application, evolving it from a prototype with a team of three developers. I developed full-stack applications using Kotlin and Java for the frontend, Golang for the backend, and managed the infrastructure with Terraform. Additionally, I integrated LLM solutions into production apps and gained experience with Azure OpenAI services. Through this project, I learned to configure Azure Cloud Services using Terraform and integrate them into applications. I have worked with both large and small agile teams, ranging from 20 to 3 members, always prioritizing an open-to-collaboration environment.
+            <h2 className='oswald title soft-white'>PROJECTS</h2>
+            <div className='project flex-col soft-white-2'>
+              <p className='sub-title'>
+              AI System to aid Breast Cancer detection
               </p>
-            </div>
-            <div className='job soft-white-2'>
-              <div className='job-left'>
-                <p className='sub-title'>MicrocementPRO</p>
-                <p className='sub-title'>Full-Stack Developer</p>
-                <br/>
-                <p>June 2023 - Sept 2023</p>
+              <div className='project-content'>
+                <img src="imgs/aisystem.png" alt="ai system screenshot"></img>
+                <p className='paragraph'>Various known vision models were trained using Transfer Learning for the
+task of image classification. A custom model was developed and trained, making it perform better than some well
+known models. A dataset was treated and curated for the training. After obtaining the results, a UI was developed to
+allow professionals to upload images and get classification from the best performing models.</p>
               </div>
-              <p className='paragraph job-right'>
-              I built a website application independently for a client, using React for the frontend and deploying a separate backend with a PostgreSQL database. I maintained constant communication with the client to gather feedback and ensure their satisfaction. Additionally, I collaborated with an SEO expert to maximize exposure and help the client expand their business outside the UK.
-              </p>
             </div>
-            <div className='job soft-white-2'>
-              <div className='job-left'>
-                <p className='sub-title'>Unit4</p>
-                <p className='sub-title'>Software Engineer Intern</p>
-                <br/>
-                <p>July 2022 - Dec 2022</p>
+            <div className='project flex-col soft-white-2'>
+              <p className='sub-title'>
+              CNNs through colorrectal histology data
+              </p>
+              <div className='project-content'>
+                <img src="imgs/cnn.png" alt="ai system screenshot"></img>
+                <p className='paragraph'>In this study, I explored the use of CNNs for analyzing colorectal histology
+images. The study was focused on understanding different structures and components of CNNs and how they can be
+used to extract important features from the tissue samples.</p>
+                
               </div>
-              <p className='paragraph job-right'>
-              I built a website application using .NET and Azure DevOps while working in an international team that emphasized Agile methodologies and peer programming. We followed Test-Driven Development (TDD) and used xUnit for testing the application.
-              </p>
-            </div>
+              </div>
           </div>
           </Element>
         </div>

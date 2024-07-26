@@ -73,11 +73,11 @@ body {
   content: "";
   left:0;
   top: 0;
-  width: clamp(400px, 40%, 900px);
+  width: clamp(300px, 40%, 900px);
 }
 .left-panel{
   position: fixed;
-  width: clamp(400px, 40%, 900px);
+  width: clamp(300px, 40%, 900px);
   background-image: url("\\imgs\\filtered-bg-4.png");
   background-size: cover;
   background-position: center;
@@ -98,27 +98,31 @@ body {
 
 #my-name{
   font-family: "Oswald";
-  font-size: 70px; /*TODO*/
+  font-size: clamp(3rem, 5vw,4.3rem); 
   letter-spacing: -4px;
   padding-right: 5rem; /*CUIDADO*/
-  line-height: 70px; /*TODO*/
+  line-height: clamp(3rem, 5vw,4.3rem);
 
 }
 
 .div-title{
-  gap: 1rem;
+  gap: clamp(.5rem, 1vw,1rem);
 }
 
 .div-title h2 {
   font-family: "Roboto Condensed";
-  font-size: 35px;
+  font-size: clamp(1.5rem, 2.5vw,2.188rem);
 }
 .right-panel {
   width: 60%;
+  display: flex;
+  justify-content: center;
 }
 .right-panel-inside {
-  padding: 6rem 14rem;
+  padding-inline: clamp(2rem, 15vw, 14rem);;
+  padding-block: 6rem;
   gap: 6rem;
+  max-width: 900px;
 }
 
 .quote {
@@ -132,6 +136,48 @@ body {
 /* EXPERIENCE */
 .experience-section {
   gap:3rem;
+}
+
+/* PROJECTS */
+.project {
+  gap: 1rem;
+}
+
+.project-content {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-content .paragraph{
+  max-width: 70%;
+}
+
+.project-content img {
+  max-width: 25%;
+  
+  
+}
+
+@media screen and (max-width: 1200px){
+  .right-panel-inside {
+    padding-inline: clamp(2rem, 8vw, 8rem);
+    width: 70%;
+  }
+  .right-panel{
+    width: 70%;
+  }
+
+  .left-panel {
+    width: clamp(300px, 30%, 900px);
+  }
+  .left-panel-placeholder{
+    width: clamp(300px, 30%, 900px);
+  }
+
+  .left-panel-inside {
+    padding-block: 4rem;
+    padding-inline: 2rem;
+  }
 }
 
 

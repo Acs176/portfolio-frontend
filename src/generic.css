@@ -45,7 +45,7 @@
 }
 
 .title {
-    font-size: 38px;
+    font-size: clamp(1.7rem, 5vw,2.3rem);
 }
 
 .active-nav{
