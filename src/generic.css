@@ -23,6 +23,10 @@
     color: #DCDCDC;
 }
 
+.soft-white-3{
+    color: #C3c3c3;
+}
+
 .soft-white {
     color: rgba(253, 253, 253, 0.849)
 }
@@ -39,7 +43,7 @@
 }
 
 .sub-title {
-    font-size: 23px;
+    font-size: clamp(1.1rem, 3vw,1.438rem);
     font-weight: bold;
     
 }

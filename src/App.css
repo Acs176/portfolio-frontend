@@ -56,12 +56,12 @@
 }
 body {
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 .App {
   font-family: "Roboto";
   color: white;
-  display: inline-flex;
   background-color: #1e1e1e;
   width: 100vw;
   height: 100%;
@@ -69,32 +69,54 @@ body {
   margin: 0;
 }
 
-.left-panel-placeholder{
-  content: "";
-  left:0;
-  top: 0;
-  width: clamp(300px, 40%, 900px);
-}
+
 .left-panel{
-  position: fixed;
-  width: clamp(300px, 40%, 900px);
+  height: 100vh;
   background-image: url("\\imgs\\filtered-bg-4.png");
   background-size: cover;
   background-position: center;
   box-shadow: 5px 0px 15px rgb(11, 11, 11);
+  z-index: 3;
 }
+
+.left-panel-placeholder{
+  display: none;
+}
+
 .left-panel-inside {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
   max-width: 100%;
-  padding: 4rem; /*TODO*/
+  padding: 2rem;
+  
 }
 .left-panel-inside ul {
-  position: absolute;
-  bottom: 60vh;
-  gap: 1rem;
+  display: none;
   font-weight: bold;
   list-style: none;
 }
+
+.repeated {
+  gap: 4rem;
+
+  position: relative;
+  overflow: hidden;
+  transform: rotate(-10deg);
+  background-color: rgba(0, 0, 0, 0.516);
+  width: 150%;
+  left: -30%;
+  padding-block: 3rem;
+  padding-inline: 2rem;
+}
+
+.repeated .quote, .repeated .paragraph{
+  transform: rotate(10deg);
+  width: 80vw;
+  margin-left: auto;
+  margin-right:auto;
+}
+
 
 #my-name{
   font-family: "Oswald";
@@ -111,10 +133,10 @@ body {
 
 .div-title h2 {
   font-family: "Roboto Condensed";
-  font-size: clamp(1.5rem, 2.5vw,2.188rem);
+  font-size: clamp(1.9rem, 2.5vw,2.188rem);
 }
 .right-panel {
-  width: 60%;
+  width: 100vw;
   display: flex;
   justify-content: center;
 }
@@ -155,10 +177,9 @@ body {
 .project-content img {
   max-width: 25%;
   
-  
 }
-
-@media screen and (max-width: 1200px){
+/* Aplica SOLO para tablet, monitor antiguo, etc. */
+@media screen and  (max-width: 1200px) and (min-width: 780px) {
   .right-panel-inside {
     padding-inline: clamp(2rem, 8vw, 8rem);
     width: 70%;
@@ -177,6 +198,65 @@ body {
   .left-panel-inside {
     padding-block: 4rem;
     padding-inline: 2rem;
+  }
+}
+
+/* Aplica siempre  que la pantalla no es movil */
+@media screen and (min-width: 780px) {
+  .App{
+    display: inline-flex;
+  }
+
+  .left-panel-placeholder{
+    content: "";
+    left:0;
+    top: 0;
+    display: block;
+  }
+
+  .left-panel {
+    position: fixed;
+  }
+
+
+
+  .left-panel-inside {
+    position: relative;
+    padding: 4rem; /*TODO*/
+  }
+
+  .left-panel-inside ul {
+    display: flex;
+    position: absolute;
+    top: 40vh;
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .repeated {
+    display: none !important;
+  }
+}
+
+/* Aplica para pc SOLO */
+@media screen and (min-width: 1200px) {
+
+  .left-panel-placeholder {
+    width: clamp(300px, 40%, 900px);
+  }
+
+  .left-panel {
+    width: clamp(300px, 40%, 900px);
+  }
+
+  .right-panel {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .repeated-right {
+    display: none;
   }
 }
 
