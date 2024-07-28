@@ -72,6 +72,7 @@ body {
 
 .left-panel{
   height: 100vh;
+  max-width: 100vw;
   background-image: url("\\imgs\\filtered-bg-4.png");
   background-size: cover;
   background-position: center;
@@ -86,8 +87,8 @@ body {
 .left-panel-inside {
   display: flex;
   flex-direction: column;
-  gap: 10rem;
-  max-width: 100%;
+  gap: 5rem;
+  max-width: 100vw;
   padding: 2rem;
   
 }
@@ -115,6 +116,29 @@ body {
   width: 80vw;
   margin-left: auto;
   margin-right:auto;
+}
+
+.arrow-down{
+  position: absolute;
+  bottom: 2vh;
+  left: calc(50vw - 24px);
+  animation: moveUpDown 2s infinite;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.arrow-down:hover{
+  cursor: pointer;
 }
 
 
@@ -174,9 +198,15 @@ body {
   max-width: 70%;
 }
 
-.project-content img {
+.img-div {
   max-width: 25%;
-  
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.img-div img {
+  max-width: 100%;
 }
 /* Aplica SOLO para tablet, monitor antiguo, etc. */
 @media screen and  (max-width: 1200px) and (min-width: 780px) {
@@ -207,6 +237,10 @@ body {
     display: inline-flex;
   }
 
+  .arrow-down{
+    display: none;
+  }
+
   .left-panel-placeholder{
     content: "";
     left:0;
@@ -222,7 +256,7 @@ body {
 
   .left-panel-inside {
     position: relative;
-    padding: 4rem; /*TODO*/
+    padding: 4rem;
   }
 
   .left-panel-inside ul {

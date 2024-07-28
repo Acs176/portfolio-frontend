@@ -3,6 +3,8 @@ import './App.css';
 import Job from './components/Job';
 import './generic.css'
 import { Link, Element } from 'react-scroll';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   return (
@@ -56,17 +58,29 @@ function App() {
             </Link>
           </ul>
           <div className='repeated  flex-col'>
-          <div className='quote flex-col soft-white-3'>
-            <p>‘‘Luck is what happens when preparation meets opportunity.’’</p>
-            <p>- Seneca</p>
-          </div>
-          <div className='paragraph soft-white-2'>
-            <p>
-              Welcome to my portfolio! I am a passionate software engineer dedicated to exploring the vast potential of deep learning and mastering the intricacies of backend development. My journey in technology is driven by a relentless pursuit of excellence and a commitment to continuous professional growth.
-            </p>
+            <div className='quote flex-col soft-white-3'>
+              <p>‘‘Luck is what happens when preparation meets opportunity.’’</p>
+              <p>- Seneca</p>
+            </div>
+            <div className='paragraph soft-white-2'>
+              <p>
+                Welcome to my portfolio! I am a passionate software engineer dedicated to exploring the vast potential of deep learning and mastering the intricacies of backend development. My journey in technology is driven by a relentless pursuit of excellence and a commitment to continuous professional growth.
+              </p>
+            
+            </div>
             
           </div>
-          </div>
+          <Link
+          activeClass="" 
+          to="content" 
+          spy={true}
+          offset={-50}  
+          smooth={true} 
+          duration={500}
+          className="arrow-down" 
+          >
+          <FontAwesomeIcon size="xl" icon={faChevronDown} />
+          </Link>
           
         </div>
       </div>
@@ -75,7 +89,9 @@ function App() {
       </div>
       <div className='right-panel'>
         <div className='right-panel-inside flex-col'>
+          
           <div className='quote flex-col repeated-right'>
+            <Element name="content"></Element>
             <p>‘‘Luck is what happens when preparation meets opportunity.’’</p>
             <p>- Seneca</p>
           </div>
@@ -95,7 +111,7 @@ function App() {
               company={"Zeekr Tech Europe"}
               position={"Software Engineer"}
               duration={"Sept 2023 - Today"}
-              description={"I deployed a full-scale production application, evolving it from a prototype with a team of three developers. I developed full-stack applications using Kotlin and Java for the frontend, Golang for the backend, and managed the infrastructure with Terraform. Additionally, I integrated LLM solutions into production apps and gained experience with Azure OpenAI services. Through this project, I learned to configure Azure Cloud Services using Terraform and integrate them into applications. I have worked with both large and small agile teams, ranging from 20 to 3 members, always prioritizing an open-to-collaboration environment."}
+              description={"I led the development of a full-scale production application from a prototype, working with a team of three developers. I used Kotlin and Java for the frontend, Golang for the backend, and managed infrastructure with Terraform. I integrated LLM solutions and Azure OpenAI services into production apps. I configured Azure Cloud Services using Terraform and integrated them into applications."}
             />
             <Job
               company={"Microcement PRO"}
@@ -119,7 +135,9 @@ function App() {
               AI System to aid Breast Cancer detection
               </p>
               <div className='project-content'>
-                <img src="imgs/aisystem.png" alt="ai system screenshot"></img>
+                <div className='img-div'>
+                  <img src="imgs/aisystem.png" alt="ai system screenshot"></img>
+                </div>
                 <p className='paragraph'>Various known vision models were trained using Transfer Learning for the
 task of image classification. A custom model was developed and trained, making it perform better than some well
 known models. A dataset was treated and curated for the training. After obtaining the results, a UI was developed to
@@ -131,7 +149,9 @@ allow professionals to upload images and get classification from the best perfor
               CNNs through colorrectal histology data
               </p>
               <div className='project-content'>
-                <img src="imgs/cnn.png" alt="ai system screenshot"></img>
+                <div className='img-div'>
+                  <img src="imgs/cnn.png" alt="ai system screenshot"></img>
+                </div>
                 <p className='paragraph'>In this study, I explored the use of CNNs for analyzing colorectal histology
 images. The study was focused on understanding different structures and components of CNNs and how they can be
 used to extract important features from the tissue samples.</p>

@@ -17,3 +17,16 @@
     gap: 2rem;
   }
 }
+
+@media screen and (max-width: 780px) {
+  .job{
+    flex-direction: column;
+  }
+  .job-right{
+    width: 100%;
+  } 
+  .job-left{
+    width: 100%;
+  }
+  
+}
