@@ -5,8 +5,11 @@ import './generic.css'
 import { Link, Element } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import useVisibility from './useVisibility';
 
 function App() {
+  const [isProjectsVisible, projRef] = useVisibility();
+  const [isExperienceVisible, expRef] = useVisibility();
   return (
     <div className="App">
       <div className='left-panel'>
@@ -107,7 +110,7 @@ function App() {
           <Element name="content"></Element>
           <div className='experience-section flex-col'>
           
-            <h2 className='oswald title soft-white'>EXPERIENCE</h2>
+            <h2 ref={expRef} className={isExperienceVisible ? 'highlight oswald title' : 'oswald title'}>EXPERIENCE</h2>
             <Job
               company={"Zeekr Tech Europe"}
               position={"Software Engineer"}
@@ -130,7 +133,7 @@ function App() {
           </Element>
           <Element name="projects">
           <div className='experience-section flex-col'>
-            <h2 className='oswald title soft-white'>PROJECTS</h2>
+            <h2 ref={projRef} className={isProjectsVisible ? 'highlight oswald title' : 'oswald title'}>PROJECTS</h2>
             <div className='project flex-col soft-white-2'>
               <p className='sub-title'>
               AI System to aid Breast Cancer detection

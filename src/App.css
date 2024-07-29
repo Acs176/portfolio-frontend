@@ -100,6 +100,27 @@ body {
   list-style: none;
 }
 
+.highlight {
+  background: radial-gradient(circle, 
+  rgb(255, 255, 255), hsla(0, 1%, 67%, 0.849));
+  background-clip: text;
+  animation: color-change 7s linear infinite;
+  background-size: 200% 250%;
+  color: transparent;
+}
+
+@keyframes color-change {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
 .repeated {
   position: relative;
   gap: clamp(2rem, 10vw, 4rem);
