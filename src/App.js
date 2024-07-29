@@ -57,7 +57,7 @@ function App() {
               </li>
             </Link>
           </ul>
-          <div className='repeated  flex-col'>
+          <div className='repeated flex-col'>
             <div className='quote flex-col soft-white-3'>
               <p>‘‘Luck is what happens when preparation meets opportunity.’’</p>
               <p>- Seneca</p>

@@ -60,6 +60,7 @@ body {
 }
 
 .App {
+  overflow-x: hidden;
   font-family: "Roboto";
   color: white;
   background-color: #1e1e1e;
@@ -99,23 +100,33 @@ body {
 }
 
 .repeated {
-  gap: 4rem;
-
   position: relative;
-  overflow: hidden;
-  transform: rotate(-10deg);
-  background-color: rgba(0, 0, 0, 0.516);
-  width: 150%;
-  left: -30%;
-  padding-block: 3rem;
+  gap: 4rem;
+ 
+  z-index: 10;
+  padding-block: 6rem;
   padding-inline: 2rem;
 }
 
+.repeated::before {
+  content:"";
+  display: inline-block;
+  position: absolute;
+  overflow: hidden !important;
+  transform: rotate(-10deg);
+  background-color: rgba(0, 0, 0, 0.516);
+  width: 170%;
+  z-index: -1;
+  height: 100%;
+  left: -30%;
+  top: 10px;
+  
+}
+
 .repeated .quote, .repeated .paragraph{
-  transform: rotate(10deg);
+  
   width: 80vw;
-  margin-left: auto;
-  margin-right:auto;
+ 
 }
 
 .arrow-down{
