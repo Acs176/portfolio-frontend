@@ -64,7 +64,7 @@ function App() {
             </div>
             <div className='paragraph soft-white-3'>
               <p>
-                I am a passionate software engineer dedicated to deep learning and application development. My journey in technology is driven by a relentless pursuit of excellence and a commitment to continuous professional growth.
+                I am a passionate software engineer dedicated to deep learning and application development. My journey in technology is driven by a pursuit of excellence and a commitment to continuous professional growth.
               </p>
             
             </div>

@@ -121,7 +121,7 @@ body {
   z-index: -1;
   height: 100%;
   left: -30%;
-  top: 10px;
+  top: 15px;
   
 }
 
@@ -135,6 +135,7 @@ body {
   bottom: 2vh;
   left: calc(50vw - 24px);
   animation: moveUpDown 2s infinite;
+  z-index: 10;
 }
 
 @keyframes moveUpDown {
@@ -237,10 +238,7 @@ body {
     width: clamp(300px, 30%, 900px);
   }
 
-  .left-panel-inside {
-    padding-block: 4rem;
-    padding-inline: 2rem;
-  }
+
 }
 
 /* Aplica siempre  que la pantalla no es movil */
@@ -268,7 +266,7 @@ body {
 
   .left-panel-inside {
     position: relative;
-    padding: 4rem;
+    
   }
 
   .left-panel-inside ul {
@@ -298,6 +296,10 @@ body {
   .right-panel {
     width: 60%;
   }
+
+  .left-panel-inside{
+    padding: 4rem;
+  }
 }
 
 @media screen and (max-width: 780px) {
@@ -314,5 +316,11 @@ body {
   }
 }
 
+/* ONLY FOR TILTED BACKGROUND */
+@media screen and (max-width: 570px) {
+  .repeated::before {
+    top: 30px !important;
+  }
+}
 
 
