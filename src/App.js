@@ -62,9 +62,9 @@ function App() {
               <p>‘‘Luck is what happens when preparation meets opportunity.’’</p>
               <p>- Seneca</p>
             </div>
-            <div className='paragraph soft-white-2'>
+            <div className='paragraph soft-white-3'>
               <p>
-                Welcome to my portfolio! I am a passionate software engineer dedicated to exploring the vast potential of deep learning and mastering the intricacies of backend development. My journey in technology is driven by a relentless pursuit of excellence and a commitment to continuous professional growth.
+                I am a passionate software engineer dedicated to deep learning and application development. My journey in technology is driven by a relentless pursuit of excellence and a commitment to continuous professional growth.
               </p>
             
             </div>
@@ -91,7 +91,7 @@ function App() {
         <div className='right-panel-inside flex-col'>
           
           <div className='quote flex-col repeated-right'>
-            <Element name="content"></Element>
+            
             <p>‘‘Luck is what happens when preparation meets opportunity.’’</p>
             <p>- Seneca</p>
           </div>
@@ -104,6 +104,7 @@ function App() {
             </p>
           </div>
           <Element name="experience">
+          <Element name="content"></Element>
           <div className='experience-section flex-col'>
           
             <h2 className='oswald title soft-white'>EXPERIENCE</h2>
