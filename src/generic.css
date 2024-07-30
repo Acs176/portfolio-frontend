@@ -50,6 +50,7 @@
 
 .title {
     font-size: clamp(1.9rem, 5vw,2.3rem);
+    padding-block: 1rem;
 }
 
 .active-nav{
@@ -65,6 +66,22 @@
 .nav-item:hover{
     transform: translate(60px, 0) scale(1.3);
 }
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it appears above other content */
+    background-color: #1e1e1ec7;
+    backdrop-filter: blur(6px);
+}
+.sticky + .job {
+    padding-top: 120px;
+}
+.sticky + .project {
+    padding-top: 120px;
+}
+
 
 
 

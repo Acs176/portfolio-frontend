@@ -6,10 +6,15 @@ import { Link, Element } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import useVisibility from './useVisibility';
+import { useEffect, useRef, useState } from 'react';
+import useStickiness from './useStickiness';
 
 function App() {
+  const extraRef = useRef();
   const [isProjectsVisible, projRef] = useVisibility();
   const [isExperienceVisible, expRef] = useVisibility();
+  const [isSticky] = useStickiness(expRef, projRef);
+  const [isProjSticky] = useStickiness(projRef, extraRef);
   return (
     <div className="App">
       <div className='left-panel'>
@@ -109,8 +114,10 @@ function App() {
           <Element name="experience">
           <Element name="content"></Element>
           <div className='experience-section flex-col'>
-          
-            <h2 ref={expRef} className={isExperienceVisible ? 'highlight oswald title' : 'oswald title'}>EXPERIENCE</h2>
+            <div className={isSticky ? 'sticky' : ''}>
+              <h2 ref={expRef} className = {isExperienceVisible ? 'highlight oswald title' : 'oswald title'} >EXPERIENCE</h2>
+            </div>
+           
             <Job
               company={"Zeekr Tech Europe"}
               position={"Software Engineer"}
@@ -133,7 +140,10 @@ function App() {
           </Element>
           <Element name="projects">
           <div className='experience-section flex-col'>
+            <div className={isProjSticky ? 'sticky' : ''}>
             <h2 ref={projRef} className={isProjectsVisible ? 'highlight oswald title' : 'oswald title'}>PROJECTS</h2>
+            </div>
+            
             <div className='project flex-col soft-white-2'>
               <p className='sub-title'>
               AI System to aid Breast Cancer detection
@@ -154,7 +164,7 @@ allow professionals to upload images and get classification from the best perfor
               </p>
               <div className='project-content'>
                 <div className='img-div'>
-                  <img src="imgs/cnn.png" alt="ai system screenshot"></img>
+                  <img ref={extraRef} src="imgs/cnn.png" alt="ai system screenshot"></img>
                 </div>
                 <p className='paragraph'>In this study, I explored the use of CNNs for analyzing colorectal histology
 images. The study was focused on understanding different structures and components of CNNs and how they can be
