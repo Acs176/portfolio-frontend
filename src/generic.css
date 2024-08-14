@@ -82,6 +82,12 @@
     padding-top: 120px;
 }
 
+@media screen and (max-width: 780px) {
+    .title {
+        padding-block: 0;
+    }
+}
+
 
 
 

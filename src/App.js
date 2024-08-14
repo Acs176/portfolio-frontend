@@ -8,6 +8,8 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import useVisibility from './useVisibility';
 import { useEffect, useRef, useState } from 'react';
 import useStickiness from './useStickiness';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   const extraRef = useRef();
@@ -15,15 +17,33 @@ function App() {
   const [isExperienceVisible, expRef] = useVisibility();
   const [isSticky] = useStickiness(expRef, projRef);
   const [isProjSticky] = useStickiness(projRef, extraRef);
+
+  useEffect(() => {
+    AOS.init({});
+  }, []);
+
   return (
     <div className="App">
       <div className='left-panel'>
         <div className='left-panel-inside'>
           <div className='div-title flex-col soft-white'>
-            <h1 id='my-name'>ADRIÁN CARBONELL</h1>
-            <h2>SOFTWARE ENGINEER</h2>
+            <h1 id='my-name' 
+            data-aos="fade-right" 
+            data-aos-duration="1500">
+              ADRIÁN CARBONELL
+            </h1>
+            <h2 
+            data-aos="fade-right" 
+            data-aos-duration="1500"
+            data-aos-delay="1000">
+              SOFTWARE ENGINEER
+            </h2>
           </div>
-          <ul className="dark-text-2">
+          <ul 
+          className="dark-text-2"
+          data-aos="fade-right" 
+          data-aos-duration="1500"
+          data-aos-delay="2000">
             <Link
               activeClass="nav-item active-nav" 
               to="experience" 
@@ -98,12 +118,21 @@ function App() {
       <div className='right-panel'>
         <div className='right-panel-inside flex-col'>
           
-          <div className='quote flex-col repeated-right'>
+          <div 
+          className='quote flex-col repeated-right'
+          data-aos="fade-left" 
+          data-aos-duration="1500"
+          >
             
             <p>‘‘Luck is what happens when preparation meets opportunity.’’</p>
             <p>- Seneca</p>
           </div>
-          <div className='paragraph dark-text repeated-right'>
+          <div 
+          className='paragraph dark-text repeated-right'
+          data-aos="fade-left" 
+          data-aos-duration="1500"
+          data-aos-delay="1000"
+          >
             <p>
               Welcome to my portfolio! I am a passionate software engineer dedicated to exploring the vast potential of deep learning and mastering the intricacies of backend development. My journey in technology is driven by a relentless pursuit of excellence and a commitment to continuous professional growth.
             </p>
@@ -113,7 +142,12 @@ function App() {
           </div>
           <Element name="experience">
           <Element name="content"></Element>
-          <div className='experience-section flex-col'>
+          <div 
+          className='experience-section flex-col'
+          data-aos="fade-left" 
+          data-aos-duration="1500"
+          data-aos-delay="2000"
+          >
             <div className={isSticky ? 'sticky' : ''}>
               <h2 ref={expRef} className = {isExperienceVisible ? 'highlight oswald title' : 'oswald title'} >EXPERIENCE</h2>
             </div>

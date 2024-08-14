@@ -220,23 +220,25 @@ body {
 
 /* PROJECTS */
 .project {
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .project-content {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
-.project-content .paragraph{
-  max-width: 70%;
-}
+
+
+
 
 .img-div {
-  max-width: 25%;
   height: auto;
   margin-top: auto;
   margin-bottom: auto;
+  max-width: 200px;
 }
 
 .img-div img {
@@ -300,6 +302,20 @@ body {
 
   .repeated {
     display: none !important;
+  }
+
+  .project-content {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row !important;
+  }
+
+  .img-div{
+    max-width: 25%;
+  }
+  .project-content .paragraph{
+    text-align: start !important;
+    max-width: 70%;
   }
 }
 
