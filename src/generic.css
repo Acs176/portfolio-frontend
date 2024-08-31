@@ -50,7 +50,7 @@
 
 .title {
     font-size: clamp(1.9rem, 5vw,2.3rem);
-    padding-block: 1rem;
+    padding-block: 0.7rem !important;
 }
 
 .active-nav{
@@ -75,8 +75,10 @@
     background-color: #1e1e1ec7;
     backdrop-filter: blur(6px);
 }
+
+/* Para evitar popping */
 .sticky + .job {
-    padding-top: 120px;
+    padding-top: 100px;
 }
 .sticky + .project {
     padding-top: 120px;

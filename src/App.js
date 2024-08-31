@@ -15,11 +15,16 @@ function App() {
   const extraRef = useRef();
   const [isProjectsVisible, projRef] = useVisibility();
   const [isExperienceVisible, expRef] = useVisibility();
+  const [isEducationVisible, eduRef] = useVisibility();
   const [isSticky] = useStickiness(expRef, projRef);
-  const [isProjSticky] = useStickiness(projRef, extraRef);
+  const [isProjSticky] = useStickiness(projRef, eduRef);
+  const [isEduSticky] = useStickiness(eduRef, extraRef)
 
   useEffect(() => {
-    AOS.init({});
+    AOS.init({
+      disable: 'phone',
+      once: true
+    });
   }, []);
 
   return (
@@ -173,7 +178,11 @@ function App() {
           </div>
           </Element>
           <Element name="projects">
-          <div className='experience-section flex-col'>
+          <div 
+          className='experience-section flex-col'
+          data-aos="fade-left" 
+          data-aos-duration="1500"
+          >
             <div className={isProjSticky ? 'sticky' : ''}>
             <h2 ref={projRef} className={isProjectsVisible ? 'highlight oswald title' : 'oswald title'}>PROJECTS</h2>
             </div>
@@ -203,6 +212,36 @@ allow professionals to upload images and get classification from the best perfor
                 <p className='paragraph'>In this study, I explored the use of CNNs for analyzing colorectal histology
 images. The study was focused on understanding different structures and components of CNNs and how they can be
 used to extract important features from the tissue samples.</p>
+                
+              </div>
+              </div>
+          </div>
+          </Element>
+
+          <Element name="education">
+          <div 
+          className='education-section flex-col'
+          data-aos="fade-left" 
+          data-aos-duration="1500"
+          >
+            <div className={isEduSticky ? 'sticky' : ''}>
+            <h2 ref={eduRef} className={isEducationVisible ? 'highlight oswald title' : 'oswald title'}>EDUCATION</h2>
+            </div>
+            
+            <div className='study flex-col soft-white-2'>
+              <p className='sub-title'>
+              B.Sc. Computer Science - Universidad de Alicante
+              </p>
+              <div className='study-content'>
+                <p className='paragraph'>Sept 2019 - June 2023</p>
+              </div>
+            </div>
+            <div className='study flex-col soft-white-2'>
+              <p className='sub-title'>
+              (Erasmus+) Software Engineering - University of Skövde
+              </p>
+              <div className='study-content'>
+                <p className='paragraph'>Sept 2021 - Jan 2022.</p>
                 
               </div>
               </div>
