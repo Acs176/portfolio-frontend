@@ -78,7 +78,7 @@
 
 /* Para evitar popping */
 .sticky + .job {
-    padding-top: 100px;
+    padding-top: 120px;
 }
 .sticky + .project {
     padding-top: 120px;
