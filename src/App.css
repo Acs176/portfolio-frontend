@@ -98,6 +98,7 @@ body {
   display: none;
   font-weight: bold;
   list-style: none;
+  width: 80%;
 }
 
 .highlight {
@@ -215,7 +216,7 @@ body {
 
 /* EXPERIENCE */
 .experience-section {
-  gap:3rem;
+  gap:2rem;
 }
 
 /* PROJECTS */
@@ -295,7 +296,6 @@ body {
 
   .left-panel-inside {
     position: relative;
-    
   }
 
   .left-panel-inside ul {

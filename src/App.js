@@ -2,7 +2,8 @@
 import './App.css';
 import Job from './components/Job';
 import './generic.css'
-import { Link, Element } from 'react-scroll';
+import { Element, Link } from 'react-scroll';
+import { Link as LinkRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import useVisibility from './useVisibility';
@@ -50,7 +51,7 @@ function App() {
           data-aos-duration="1500"
           data-aos-delay="2000">
             <Link
-              activeClass="nav-item active-nav" 
+              activeClass="active-nav" 
               to="experience" 
               spy={true}
               offset={-20} 
@@ -156,13 +157,14 @@ function App() {
             <div className={isSticky ? 'sticky' : ''}>
               <h2 ref={expRef} className = {isExperienceVisible ? 'highlight oswald title' : 'oswald title'} >EXPERIENCE</h2>
             </div>
-           
+           <LinkRouter to="/zeekr">
             <Job
               company={"Zeekr Tech Europe"}
               position={"Software Engineer"}
               duration={"Sept 2023 - Today"}
               description={"I led the development of a full-scale production application from a prototype, working with a team of three developers. I used Kotlin and Java for the frontend, Golang for the backend, and managed infrastructure with Terraform. I integrated LLM solutions and Azure OpenAI services into production apps. I configured Azure Cloud Services using Terraform and integrated them into applications."}
             />
+            </LinkRouter>
             <Job
               company={"Microcement PRO"}
               position={"Full-Stack Developer"}

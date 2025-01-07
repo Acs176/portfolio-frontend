@@ -1,6 +1,15 @@
 .job {
   display: flex;
-  width: 100%;
+  max-width: 100%;
+  transition: 200ms ease-in-out;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.job:hover {
+  background-color: rgb(54, 54, 54);
+  transform: scale(1.05);
+  cursor: pointer;
 }
   
 .job-left {
