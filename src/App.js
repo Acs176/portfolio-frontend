@@ -91,6 +91,19 @@ function App() {
               </li>
             </Link>
           </ul>
+          <div 
+          class="link-container"
+          data-aos="fade-right" 
+          data-aos-duration="1500"
+          data-aos-delay="1000"
+          >
+          <a href="https://www.linkedin.com/in/adr-dev" target="_blank">
+            <img src="imgs/linkedin.png" alt="LinkedIn"/>
+          </a>
+          <a href="https://github.com/Acs176" target="_blank">
+            <img src="imgs/github.png" alt="GitHub"/>
+          </a>
+        </div>
           <div className='repeated flex-col'>
             <div className='quote flex-col soft-white-3'>
               <p>‘‘Luck is what happens when preparation meets opportunity.’’</p>
@@ -117,6 +130,7 @@ function App() {
           </Link>
           
         </div>
+        
       </div>
       <div className='left-panel-placeholder full-height'>
 
