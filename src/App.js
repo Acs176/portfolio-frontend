@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 import useStickiness from './useStickiness';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import quotes from "./data/quotes.json"
 
 function App() {
   const extraRef = useRef();
@@ -19,7 +20,13 @@ function App() {
   const [isEducationVisible, eduRef] = useVisibility();
   const [isSticky] = useStickiness(expRef, projRef);
   const [isProjSticky] = useStickiness(projRef, eduRef);
-  const [isEduSticky] = useStickiness(eduRef, extraRef)
+  const [isEduSticky] = useStickiness(eduRef, extraRef);
+  const [quoteIndex, setQuoteIndex] = useState(0);
+
+  function genRandNum(min, max) {
+    const rand = Math.floor(min + Math.random() * (max - min));
+    return rand
+  }
 
   useEffect(() => {
     AOS.init({
@@ -27,6 +34,14 @@ function App() {
       once: true
     });
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setQuoteIndex(genRandNum(0, quotes.length));
+    }, 10000);
+  
+    return () => clearInterval(interval); // prevent memory leaks
+  }, [])
 
   return (
     <div className="App">
@@ -92,7 +107,7 @@ function App() {
             </Link>
           </ul>
           <div 
-          class="link-container"
+          className="link-container"
           data-aos="fade-right" 
           data-aos-duration="1500"
           data-aos-delay="1000"
@@ -105,10 +120,17 @@ function App() {
           </a>
         </div>
           <div className='repeated flex-col'>
-            <div className='quote flex-col soft-white-3'>
-              <p>‘‘Luck is what happens when preparation meets opportunity.’’</p>
-              <p>- Seneca</p>
+            <div className='quote-wrapper flex-col soft-white-3'>
+              <div className="quote-placeholder">
+                <p>‘‘ {quotes[4].quote} ’’</p>
+                <p>- {quotes[4].author}</p>
+              </div>
+              <div className='quote flex-col'>
+                <p>‘‘ {quotes[quoteIndex].quote} ’’</p>
+                <p>- {quotes[quoteIndex].author}</p>
+              </div>
             </div>
+            
             <div className='paragraph soft-white-3'>
               <p>
                 I am a passionate software engineer dedicated to deep learning and application development. My journey in technology is driven by a pursuit of excellence and a commitment to continuous professional growth.
@@ -137,15 +159,20 @@ function App() {
       </div>
       <div className='right-panel'>
         <div className='right-panel-inside flex-col'>
-          
-          <div 
-          className='quote flex-col repeated-right'
-          data-aos="fade-left" 
-          data-aos-duration="1500"
-          >
-            
-            <p>‘‘Luck is what happens when preparation meets opportunity.’’</p>
-            <p>- Seneca</p>
+          <div className='quote-wrapper repeated-right'>
+              <div className="quote-placeholder">
+                <p>‘‘ {quotes[4].quote} ’’</p>
+                <p>- {quotes[4].author}</p>
+              </div>
+            <div 
+            className='quote flex-col'
+            data-aos="fade-left" 
+            data-aos-duration="1500"
+            >
+              
+              <p>‘‘ {quotes[quoteIndex].quote} ’’</p>
+              <p>- {quotes[quoteIndex].author}</p>
+            </div>
           </div>
           <div 
           className='paragraph dark-text repeated-right'

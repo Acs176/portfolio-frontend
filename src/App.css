@@ -146,7 +146,7 @@ body {
   
 }
 
-.repeated .quote, .repeated .paragraph{
+.repeated .quote, .repeated .paragraph, .repeated .quote-wrapper, .repeated .quote-placeholder{
   width: 80vw;
   max-width: 35rem;
 }
@@ -178,7 +178,7 @@ body {
 
 #my-name{
   font-family: "Oswald";
-  font-size: clamp(3rem, 5vw,4.3rem); 
+  font-size: clamp(3rem, 4vw,4rem); 
   letter-spacing: -4px;
   padding-right: 5rem; /*CUIDADO*/
   line-height: clamp(3rem, 5vw,4.3rem);
@@ -191,7 +191,7 @@ body {
 
 .div-title h2 {
   font-family: "Roboto Condensed";
-  font-size: clamp(1.9rem, 2.5vw,2.188rem);
+  font-size: clamp(1.9rem, 2.5vw,2rem);
 }
 
 .link-container {
@@ -223,16 +223,35 @@ body {
   justify-content: center;
 }
 .right-panel-inside {
-  padding-inline: clamp(2rem, 15vw, 14rem);;
-  padding-block: 6rem;
+  padding-inline: clamp(2rem, 15vw, 13rem);;
+  padding-block: 5.5rem;
   gap: 6rem;
   max-width: 900px;
 }
 
 .quote {
+  position: absolute; /* Sits on top of the placeholder */
+  top: 0;
+  left: 0;
+  right: 0;
   font-family: "playfair display";
   font-weight: lighter;
-  font-size: 35px;
+  font-size: 32px;
+  gap: 1rem;
+  letter-spacing: -2px;
+}
+
+.quote-wrapper {
+  position: relative;
+}
+
+.quote-placeholder {
+  visibility: hidden; /* Keeps the placeholder invisible but still occupies space */
+  height: auto; /* Ensures it adjusts to the tallest quote */
+  overflow: hidden; /* Prevents overflow */
+  font-family: "playfair display";
+  font-weight: lighter;
+  font-size: 32px;
   gap: 1rem;
   letter-spacing: -2px;
 }
@@ -346,10 +365,8 @@ body {
     text-align: start !important;
     max-width: 70%;
   }
+  
 
-  .link-container {
- 
-  }
 }
 
 /* Aplica para pc SOLO */
@@ -368,7 +385,7 @@ body {
   }
 
   .left-panel-inside{
-    padding: 4rem;
+    padding: 3.3rem;
   }
 }
 
@@ -381,9 +398,10 @@ body {
    position: relative;
   }
 
-  .quote {
+  .quote, .quote-placeholder {
     font-size: clamp(28px, 6vw, 35px)
   }
+  
 }
 
 /* ONLY FOR TILTED BACKGROUND */
