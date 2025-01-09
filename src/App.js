@@ -22,6 +22,7 @@ function App() {
   const [isProjSticky] = useStickiness(projRef, eduRef);
   const [isEduSticky] = useStickiness(eduRef, extraRef);
   const [quoteIndex, setQuoteIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
 
   function genRandNum(min, max) {
     const rand = Math.floor(min + Math.random() * (max - min));
@@ -37,7 +38,17 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setQuoteIndex(genRandNum(0, quotes.length));
+      // Wait for fade-out animation to finish before changing text
+      setIsFading(true);
+      setTimeout(() => { 
+        setQuoteIndex(genRandNum(0, quotes.length));
+        // change quote, wait for fade in to finish
+        setTimeout(() => {
+          setIsFading(false);
+        }, 1500)
+      }, 1500);
+
+      
     }, 10000);
   
     return () => clearInterval(interval); // prevent memory leaks
@@ -122,10 +133,10 @@ function App() {
           <div className='repeated flex-col'>
             <div className='quote-wrapper flex-col soft-white-3'>
               <div className="quote-placeholder">
-                <p>‘‘ {quotes[4].quote} ’’</p>
+                <p>‘‘{quotes[4].quote}’’</p>
                 <p>- {quotes[4].author}</p>
               </div>
-              <div className='quote flex-col'>
+              <div className={`quote flex-col ${isFading ? 'fading' : ''}`}>
                 <p>‘‘ {quotes[quoteIndex].quote} ’’</p>
                 <p>- {quotes[quoteIndex].author}</p>
               </div>
@@ -165,9 +176,9 @@ function App() {
                 <p>- {quotes[4].author}</p>
               </div>
             <div 
-            className='quote flex-col'
-            data-aos="fade-left" 
-            data-aos-duration="1500"
+            className={`quote flex-col ${isFading ? 'fading' : ''}`}
+            // data-aos="fade-left" 
+            // data-aos-duration="1500"
             >
               
               <p>‘‘ {quotes[quoteIndex].quote} ’’</p>

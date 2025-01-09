@@ -239,6 +239,21 @@ body {
   font-size: 32px;
   gap: 1rem;
   letter-spacing: -2px;
+  opacity: 1;
+}
+
+.fading {
+  animation: quoteAnimation 3s;
+}
+
+@keyframes quoteAnimation {
+  0% {
+    opacity:1;
+  }
+  50% {opacity: 0}
+  100% {
+    opacity: 1;
+  }
 }
 
 .quote-wrapper {
@@ -399,7 +414,7 @@ body {
   }
 
   .quote, .quote-placeholder {
-    font-size: clamp(28px, 6vw, 35px)
+    font-size: clamp(27px, 6vw, 30px)
   }
   
 }
