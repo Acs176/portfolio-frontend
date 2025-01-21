@@ -80,6 +80,7 @@ body {
   z-index: 3;
   height: 100vh;
   max-height: 150vh;
+  min-height: 800px;
 }
 
 .left-panel-placeholder{
