@@ -9,9 +9,10 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import useVisibility from './useVisibility';
 import { useEffect, useRef, useState } from 'react';
 import useStickiness from './useStickiness';
-import AOS from "aos";
-import "aos/dist/aos.css";
 import quotes from "./data/quotes.json"
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
 
 function App() {
   const extraRef = useRef();
@@ -24,17 +25,106 @@ function App() {
   const [quoteIndex, setQuoteIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
+  const rightPanelRef = useRef();
+  const leftPanelRef = useRef();
+  const staggerSpeed = 1;
+  const animationDuration = 1.5;
+
+  gsap.registerPlugin(ScrollTrigger);
+
   function genRandNum(min, max) {
     const rand = Math.floor(min + Math.random() * (max - min));
     return rand
   }
 
-  useEffect(() => {
-    AOS.init({
-      disable: 'phone',
-      once: true
+  useGSAP(() => {
+    gsap.from('.fade-in', {
+      x: 200,
+      duration: animationDuration,
+      stagger: {
+        each: staggerSpeed
+      }
     });
-  }, []);
+    gsap.from('.fade-in', {
+      opacity: 0,
+      ease: "power1.in",
+      duration: animationDuration,
+      stagger: {
+        each: staggerSpeed
+      }
+    })
+
+    const elements = document.querySelectorAll(".animate-on-scroll");
+
+    elements.forEach((el) => {
+      gsap.from(el, {
+        opacity: 0,
+        ease: "power1.in",
+        duration: animationDuration,
+        scrollTrigger: {
+          trigger: el, // Trigger for each individual element
+          start: "top 80%", // Start when the element is in the 80% of the viewport
+          toggleActions: "play none none none", // Play animation when in view
+        },
+      });
+      gsap.from(el, {
+        x: 200,
+        duration: animationDuration,
+        scrollTrigger: {
+          trigger: el, // Trigger for each individual element
+          start: "top 80%", // Start when the element is in the 80% of the viewport
+          toggleActions: "play none none none", // Play animation when in view
+        },
+      });
+    });
+    
+  },{scope: rightPanelRef});
+
+  useGSAP(() => {
+    gsap.from('.fade-in', {
+      x: -200,
+      duration: animationDuration,
+      stagger: {
+        each: staggerSpeed
+      }
+    });
+    gsap.from('.fade-in', {
+      opacity: 0,
+      ease: "power1.in",
+      duration: animationDuration,
+      stagger: {
+        each: staggerSpeed
+      }
+    })
+    gsap.from('.link-container', {
+      x: -200,
+      duration: animationDuration,
+      opacity: 0,
+      ease: "power1.out",
+      delay: 1
+    })
+    gsap.from('.bounce', {
+      x: 200,
+      opacity: 0,
+      duration: animationDuration,
+      ease: "bounce.out",
+      delay: 2
+    })
+    gsap.from('.fade-left', {
+      x: 200,
+      duration: animationDuration,
+      delay: 3
+    });
+    gsap.from('.fade-left', {
+      opacity: 0,
+      ease: "power1.in",
+      duration: animationDuration,
+      delay: 3
+    })
+
+  },{scope: leftPanelRef});
+
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -57,25 +147,20 @@ function App() {
   return (
     <div className="App">
       <div className='left-panel'>
-        <div className='left-panel-inside'>
+        <div ref={leftPanelRef} className='left-panel-inside'>
           <div className='div-title flex-col soft-white'>
-            <h1 id='my-name' 
-            data-aos="fade-right" 
-            data-aos-duration="1500">
+            <h1 id='my-name' className='fade-in'
+            >
               ADRIÁN CARBONELL
             </h1>
             <h2 
-            data-aos="fade-right" 
-            data-aos-duration="1500"
-            data-aos-delay="1000">
+            className='fade-in'>
               SOFTWARE ENGINEER
             </h2>
           </div>
           <ul 
-          className="dark-text-2"
-          data-aos="fade-right" 
-          data-aos-duration="1500"
-          data-aos-delay="2000">
+          className="dark-text-2 fade-in"
+          >
             <Link
               activeClass="active-nav" 
               to="experience" 
@@ -119,9 +204,6 @@ function App() {
           </ul>
           <div 
           className="link-container"
-          data-aos="fade-right" 
-          data-aos-duration="1500"
-          data-aos-delay="1000"
           >
           <a href="https://www.linkedin.com/in/adr-dev" target="_blank">
             <img src="imgs/linkedin.png" alt="LinkedIn"/>
@@ -131,18 +213,18 @@ function App() {
           </a>
         </div>
           <div className='repeated flex-col'>
-            <div className='quote-wrapper flex-col soft-white-3'>
+            <div className='quote-wrapper flex-col soft-white-3 '>
               <div className="quote-placeholder">
                 <p>‘‘{quotes[4].quote}’’</p>
                 <p>- {quotes[4].author}</p>
               </div>
-              <div className={`quote flex-col ${isFading ? 'fading' : ''}`}>
+              <div className={`quote bounce flex-col ${isFading ? 'fading' : ''}`}>
                 <p>‘‘ {quotes[quoteIndex].quote} ’’</p>
                 <p>- {quotes[quoteIndex].author}</p>
               </div>
             </div>
             
-            <div className='paragraph soft-white-3'>
+            <div className='paragraph soft-white-3 fade-left'>
               <p>
                 I am a passionate software engineer dedicated to deep learning and application development. My journey in technology is driven by a pursuit of excellence and a commitment to continuous professional growth.
               </p>
@@ -169,27 +251,22 @@ function App() {
 
       </div>
       <div className='right-panel'>
-        <div className='right-panel-inside flex-col'>
+        <div ref={rightPanelRef} className='right-panel-inside flex-col'>
           <div className='quote-wrapper repeated-right'>
               <div className="quote-placeholder">
                 <p>‘‘ {quotes[4].quote} ’’</p>
                 <p>- {quotes[4].author}</p>
               </div>
             <div 
-            className={`quote flex-col ${isFading ? 'fading' : ''}`}
-            // data-aos="fade-left" 
-            // data-aos-duration="1500"
+            className={`quote flex-col ${isFading ? 'fading' : ''} fade-in`}
             >
               
               <p>‘‘ {quotes[quoteIndex].quote} ’’</p>
               <p>- {quotes[quoteIndex].author}</p>
             </div>
           </div>
-          <div 
-          className='paragraph dark-text repeated-right'
-          data-aos="fade-left" 
-          data-aos-duration="1500"
-          data-aos-delay="1000"
+          <div
+          className='paragraph dark-text repeated-right fade-in'
           >
             <p>
               Welcome to my portfolio! I am a passionate software engineer dedicated to exploring the vast potential of deep learning and mastering the intricacies of backend development. My journey in technology is driven by a relentless pursuit of excellence and a commitment to continuous professional growth.
@@ -201,10 +278,7 @@ function App() {
           <Element name="experience">
           <Element name="content"></Element>
           <div 
-          className='experience-section flex-col'
-          data-aos="fade-left" 
-          data-aos-duration="1500"
-          data-aos-delay="2000"
+          className='experience-section flex-col fade-in'
           >
             <div className={isSticky ? 'sticky' : ''}>
               <h2 ref={expRef} className = {isExperienceVisible ? 'highlight oswald title' : 'oswald title'} >EXPERIENCE</h2>
@@ -233,9 +307,7 @@ function App() {
           </Element>
           <Element name="projects">
           <div 
-          className='experience-section flex-col'
-          data-aos="fade-left" 
-          data-aos-duration="1500"
+          className='experience-section flex-col animate-on-scroll'
           >
             <div className={isProjSticky ? 'sticky' : ''}>
             <h2 ref={projRef} className={isProjectsVisible ? 'highlight oswald title' : 'oswald title'}>PROJECTS</h2>
@@ -274,9 +346,7 @@ used to extract important features from the tissue samples.</p>
 
           <Element name="education">
           <div 
-          className='education-section flex-col'
-          data-aos="fade-left" 
-          data-aos-duration="1500"
+          className='education-section flex-col animate-on-scroll'
           >
             <div className={isEduSticky ? 'sticky' : ''}>
             <h2 ref={eduRef} className={isEducationVisible ? 'highlight oswald title' : 'oswald title'}>EDUCATION</h2>

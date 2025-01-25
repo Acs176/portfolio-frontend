@@ -85,9 +85,11 @@ body {
 
 .left-panel-placeholder{
   display: none;
+  min-height: 800px;
 }
 
 .left-panel-inside {
+  min-height: 800px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
